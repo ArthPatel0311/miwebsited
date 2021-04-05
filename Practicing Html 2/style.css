@@ -1,0 +1,31 @@
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(200px);
+  }
+}
+
+li a:link,
+li a:visited {
+  color: black;
+}
+
+#nav-links li {
+  list-style: none;
+}
+
+.burger {
+  display: block;
+  width: 200px;
+  height: 100px;
+  background-color: blue;
+}
+
+.navl {
+  font-size: 20px;
+  transform: translateX(20px);
+}

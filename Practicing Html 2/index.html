@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    
+    <script src="https://kit.fontawesome.com/0e784927ba.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+
+
+    <nav id = "nav" > 
+        <button class = "buttondark"><i class="fas fa-adjust"></i></button>
+        <a href="#"><button ><i class="fas fa-home"></i></button>
+        </a>
+        <a href="#dropmenu" id= "dropmenu">&#x3c;Arth Patel/&#x3e;    
+        <div class="navitems">
+        <ul id= "links"  >
+            <li><a href="#boutmecont" class="link">Me</a></li>
+            <li><a href="#wrap" class="link">Projects</a></li>
+            <li><a href="#" class="link">Resume</a></li>
+            <li><a href="#contact" class="link">Contact</a></li>
+            
+        </ul>
+        </div>
+        </a>
+        
+    </nav>
+    
+    <div class="gradient">
+    <div id="particle">
+    
+    </div>
+    </div>
+
+        <div id="orbit-container">
+        <h6 id="name">&#x3c;Arth Patel/&#x3e;</h6>
+        <div class="Cont">
+        <a href="#"><i class="fab fa-github fa-0x" style="font-size: 6.6rem;"></i></a>
+        </div>
+</div>
+
+
+
+<div id="boutmecont">
+        <div id = "AboutMe" >
+            <h6>Me</h6>
+            <p> Creator, Developer, Student </p>      
+            <a href="#">Resume</a>
+        </div>
+    </div>
+
+    <div class="projcont">
+        <div id="Projects">
+<div id = "Proj">
+    <h6>Projects</h6>
+    <p>See some of my works!</p>
+</div>
+</div>
+<div id ="wrap">
+<div class="flexcont">
+    <div class="projs"></div>
+    <div class="projs"></div>
+    <div class="projs"></div>
+    <div class="projs"></div>
+
+</div>
+</div>
+</div>
+<div class="contactcont">
+    <div id="particle2">
+    </div>
+    <div id="contact">
+        <h6>Contact</h6>
+        <p>Reach out!</p>
+        <a href="mailto:patelarth0311@gmail.com"><i class="fas fa-envelope" style="font-size: 3rem;"></i></a>
+    </div>
+    
+</div>
+
+
+<!---
+    SCRIPT
+--> 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.buttondark').click(function () {
+
+
+                $('.gradient').toggleClass('dark'),
+                $('.contactcont').toggleClass('dark'),
+                $('body').toggleClass('dark'),
+                $('#AboutMe').toggleClass('dark'),
+                $('#Projects').toggleClass('dark'),
+                $('.projs').toggleClass('dark'),
+                $('h6').toggleClass('dark'),
+                $('p').toggleClass('dark');
+                $('a').toggleClass('dark');
+                $('.fa-adjust').toggleClass('flip');
+
+        });
+
+    });
+
+</script>
+
+
+
+<script>
+ 
+   
+
+
+    var clickCount = 1;
+        var showElem = document.getElementById('dropmenu');
+        var hideElem = document.getElementById('links');
+        var slidedown = document.getElementById('links');
+        
+
+      
+        
+
+    if (matchMedia) {
+        
+        const mq = window.matchMedia("(max-width: 920px)");
+        mq.addListener(drop);
+        drop(mq);
+
+        const mq2 = window.matchMedia("(min-width: 920px)");
+
+
+        mq2.addListener(show);
+        show(mq2);
+
+        
+            function show(mq2) {
+
+                
+               
+
+                if (mq2.matches) {
+                    const navLinks = document.querySelectorAll('#links li');
+                    navLinks.forEach((link, index) => {
+
+                    link.style.animation = `fade 1.5s ease-in forwards  ${index / 7}s `;
+
+                    });
+                    hideElem.style = 'display: flex, flex-direction:column';
+                      
+              
+            } else {
+                 hideElem.style = 'display: none';
+                 clickCount = 1;
+            }
+
+
+
+            
+        };
+       
+    
+
+
+    function drop(mq) {
+
+        
+    
+            showElem.onclick = function () {
+                
+
+                
+            
+                 if (mq.matches) {
+                      const navLinks = document.querySelectorAll('#links li');
+                     navLinks.forEach((link, index) => {
+                       
+                         link.style.animation = `fadeDown 1.5s ease-in forwards  ${index / 7}s `;
+                         
+
+                     });
+              
+                if (clickCount == 1) {
+                   
+                    hideElem.style = 'display: flex, flex-direction:column';
+                    clickCount=0;
+                     
+                } else {
+                    clickCount++;
+                    hideElem.style.display = 'none';
+                }
+
+            }  
+        }
+            
+                
+            
+    };
+}
+</script>
+
+
+<script>$(document).ready(function () {
+        $(window).scroll(function () {
+            var blacknav = $('#boutmecont').offset().top;
+            var blacknavHeight = $('#boutmecont').height();
+
+            var blacknav2 = $('#wrap').offset().top;
+            var blacknav2Height = $('#wrap').height();
+
+            var menu_pos = $('#dropmenu').offset().top;
+            var menu_height = $('#dropmenu').height();
+
+            var scroll = $(window).scrollTop();
+            var menu = document.getElementById('dropmenu');
+            
+           const navItems = document.querySelectorAll('#links li a');
+            var exists = document.querySelector("body.dark");
+
+            if (menu_pos > blacknav && menu_pos < (blacknavHeight + blacknav2Height + blacknav2  + blacknav)
+                    && (exists ==  null)) {
+
+                menu.style.color = "black";
+               
+                 navItems.forEach((link, index) => {
+
+                   link.style.color = "black";
+
+                });
+            }
+            else {
+ 
+                menu.style.color = "white";
+                navItems.forEach((link, index) => {
+
+                    link.style.color = "white";
+
+                });
+            }
+
+        })
+    })</script>
+
+
+<script type="text/javascript" src="js/particles.min.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+
+
+
+
+</body>
+</html>

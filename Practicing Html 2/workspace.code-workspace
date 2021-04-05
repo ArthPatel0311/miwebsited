@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"path": "."
+	},
+	{
+		"path": "../../Downloads/fontawesome-free-5.15.2-web"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "Practicing Html"
+  }
+}
